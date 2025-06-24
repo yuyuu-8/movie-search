@@ -60,3 +60,18 @@
   width: 100%;
   box-sizing: border-box;
 }
+
+.similar-movies-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  padding: 1rem 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+@media (max-width: 900px) {
+  .similar-movies-grid {
+    grid-template-columns: 1fr;
+  }
+}
