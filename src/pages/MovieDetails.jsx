@@ -40,7 +40,11 @@ function MovieDetails() {
         if (!res.ok) return;
         const data = await res.json();
         setSimilar(data.results || []);
-      } catch {}
+      } catch (e) {
+        setError(e.message);
+      } finally {
+        setLoading(false);
+      }
     }
     fetchSimilar();
   }, [id]);
