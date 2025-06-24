@@ -108,6 +108,24 @@
   margin-top: auto;
 }
 
+.movie-genres {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.movie-genre-tag {
+  background: #222;
+  color: #e50914;
+  border-radius: 16px;
+  padding: 0.2rem 0.75rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  margin-bottom: 0.2rem;
+}
+
 @media (max-width: 768px) {
   .movie-card {
     font-size: 0.9rem;
