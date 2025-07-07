@@ -6,3 +6,12 @@
   display: flex;
   flex-direction: column;
 }
+
+.footer {
+  margin-top: 2rem;
+  padding: 1rem 0;
+  text-align: center;
+  font-size: 0.95rem;
+  color: #888;
+  background: #171717;
+}

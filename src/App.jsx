@@ -6,6 +6,17 @@ import NavBar from "./components/Navbar";
 import { MovieProvider } from "./contexts/MovieContext";
 import MovieDetails from "./pages/MovieDetails";
 
+function Footer() {
+  return (
+    <footer className="footer">
+      <p>
+        This product uses the TMDB API but is not endorsed or certified by TMDB.{" "}
+        <br />© 2025, yuyu
+      </p>
+    </footer>
+  );
+}
+
 function App() {
   return (
     <MovieProvider>
@@ -17,6 +28,7 @@ function App() {
           <Route path="/movie-search/movie/:id" element={<MovieDetails />} />
         </Routes>
       </main>
+      <Footer />
     </MovieProvider>
   );
 }
