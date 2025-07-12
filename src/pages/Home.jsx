@@ -16,7 +16,9 @@ function Home() {
         setMovies(popularMovies);
       } catch (err) {
         console.log(err);
-        setError("Failed to load movies...");
+        setError(
+          "Failed to load movies. Try turning VPN on and reload the page"
+        );
       } finally {
         setLoading(false);
       }
@@ -37,7 +39,9 @@ function Home() {
       setError(null);
     } catch (err) {
       console.log(err);
-      setError("Failed to search movies...");
+      setError(
+        "Failed to search movies. Try turning VPN on and reload the page"
+      );
     } finally {
       setLoading(false);
     }
