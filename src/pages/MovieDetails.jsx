@@ -50,62 +50,76 @@ function MovieDetails() {
   }, [id]);
 
   if (loading) return <div>Loading...</div>;
-  if (error) return <div>{error}</div>;
+  if (error) {
+    return (
+      <div className="error-message">
+        {error}
+        <div style={{ marginTop: "1rem", color: "#e50914" }}>
+          Try turning VPN on and reload the page.
+          <br />
+          If the problem persists, check your internet connection or try again
+          later.
+        </div>
+      </div>
+    );
+  }
   if (!movie) return null;
 
   return (
-    <div
-      className="movie-details"
-      style={{
-        maxWidth: 700,
-        margin: "2rem auto",
-        background: "#181818",
-        borderRadius: 12,
-        padding: 24,
-      }}
-    >
-      <h2>{movie.title}</h2>
-      <img
-        src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-        alt={movie.title}
+    <div>
+      <div
+        className="movie-details"
         style={{
-          width: 250,
-          float: "left",
-          marginRight: 24,
-          borderRadius: 8,
+          maxWidth: 700,
+          margin: "2rem auto",
+          background: "#181818",
+          borderRadius: 12,
+          padding: 24,
         }}
-      />
-      <div>
-        <p>
-          <b>Release:</b> {movie.release_date}
-        </p>
-        <p>
-          <b>Rating:</b> {movie.vote_average?.toFixed(1)} / 10
-        </p>
-        <p>
-          <b>Genres:</b> {movie.genres?.map((g) => g.name).join(", ")}
-        </p>
-        <p>
-          <b>Overview:</b> {movie.overview}
-        </p>
-        <p>
-          <b>Runtime:</b> {movie.runtime} min
-        </p>
-        <p>
-          <b>Status:</b> {movie.status}
-        </p>
-      </div>
-      <div style={{ clear: "both" }}></div>
-      {similar.length > 0 && (
-        <div style={{ marginTop: 40 }}>
-          <h3 style={{ marginBottom: 16 }}>Similar Movies</h3>
-          <div className="similar-movies-grid">
-            {similar.slice(0, 8).map((m) => (
-              <MovieCard movie={m} key={m.id} />
-            ))}
-          </div>
+      >
+        <h2>{movie.title}</h2>
+        <img
+          src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+          alt={movie.title}
+          style={{
+            width: 250,
+            float: "left",
+            marginRight: 24,
+            borderRadius: 8,
+          }}
+        />
+        <div>
+          <p>
+            <b>Release:</b> {movie.release_date}
+          </p>
+          <p>
+            <b>Rating:</b> {movie.vote_average?.toFixed(1)} / 10
+          </p>
+          <p>
+            <b>Genres:</b> {movie.genres?.map((g) => g.name).join(", ")}
+          </p>
+          <p>
+            <b>Overview:</b> {movie.overview}
+          </p>
+          <p>
+            <b>Runtime:</b> {movie.runtime} min
+          </p>
+          <p>
+            <b>Status:</b> {movie.status}
+          </p>
         </div>
-      )}
+        <div style={{ clear: "both" }}></div>
+        {similar.length > 0 && (
+          <div style={{ marginTop: 40 }}>
+            <h3 style={{ marginBottom: 16 }}>Similar Movies</h3>
+            <div className="similar-movies-grid">
+              {similar.slice(0, 8).map((m) => (
+                <MovieCard movie={m} key={m.id} />
+              ))}
+            </div>
+          </div>
+        )}
+      </div>
     </div>
   );
 }
